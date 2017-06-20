@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#b1").click(function(){
+				var item=$("#test").val();
+				$("ol").append("<li>"+item+"<button id='b2'>X</button>"+"<button >Completed</button>"+"</li>");
+				$("#test").val('');
+			});
+			$("#b2").click(function(){
+				alert("X button clicked");
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<p>Personal List</p>
+	
+		
+			<input type="text" id="test" name="listitem" placeholder="what is to be added in the list?!" autofocus="true">
+		
+		
+			<button id="b1" >Add</button>
+	<ol></ol>
+	
+</body>
+</html>
+
+
+
+
+

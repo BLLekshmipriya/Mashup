@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign in to GitHub . GitHub</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style type="text/css">
+		design
+			{
+				margin-bottom: 7px;
+				font-family: Nimbus Sans L;
+				font-size: 14px;
+				line-height: 1.5;
+				color: #24292e;
+			}
+		a:link
+			{
+				color: #9b9b9b;
+			}
+		a
+		{
+			color: #9b9b9b;
+			font-size: 12px;
+			font-family: Nimbus Sans L;
+			padding-right: 12px;
+
+		}
+	</style>
+</head>
+<body style="background-color: #f9f9f9;">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4" style="text-align: center;max-width: 308px;width: 100% !important">
+				<img src="https://www.doitwithwp.com/wp-content/uploads/2015/08/github-logo.png " height="100px" width="170px" style="padding-top: 16px;">
+			</div>
+		</div>
+		<div class="row" style="margin-top: 0px">
+			<div class="col-xs-4 col-xs-offset-4" style="font-family: Nimbus Sans L;font-size: 24px;color: #333;letter-spacing: -0.5px;line-height: 36px;text-align: center;align-self: center;max-width: 308px;width: 100% !important">Sign in to GitHub
+			</div>
+		</div>
+		<div class="row" >
+			<div class="col-xs-4 col-xs-offset-4" style="border: 1px solid #d8dee2;border-radius: 5px;background-color: #fff;padding: 20px;margin-top: 16px;margin-bottom: 16px;align-self: center;max-width: 308px;width: 100% !important">
+				<form>
+					<div class="form-group">
+						<label for="inputdefault" class="design" style="font-weight: bold;">Username or email address</label>
+    						<input class="form-control" id="inputdefault" type="text" style="margin-top: 5px;margin-bottom: 15px;min-height: 34px;padding: 6px 8px;vertical-align: middle;">
+ 					</div>	
+					<div class="form-group">
+						<label for="inputdefault" class="design" style="font-weight: bold;">Password</label><a href="gitpassreset.html" style="font-family: Nimbus Sans L;font-weight: bold;float: right;font-size: 12px;color: #0366d6;">Forget password?</a>
+							<input class="form-control" type="password" id="inputdefault" style="margin-top: 5px;min-height: 34px;">
+					</div>
+					<div class="btn-group btn-group-justified">
+						<button class="btn btn-success btn-block" type="submit" style="font-family: Nimbus Sans L;font-weight: bold;margin-top: 5px;width: 100%;color: #fff;background-color: #28a745;">Sign in</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4" style="border: 1px solid #d8dee2;border-radius: 5px;padding: 12px 12px;text-align: center;border: 1px solid #d8dee2;border-radius: 5px;max-width: 308px;width: 100% !important">
+				<p class="design">New to GitHub?<a href="gitpassreset.html" style="font-family: Nimbus Sans L;color: #0366d6;font-size: 14px;">Create an account.</a></p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4" style="border: 1px ;border-color: transparent;padding-top: 80px;max-width: 26.6%;padding-bottom: 50px;text-align: center;max-width: 308;width: 100% !important">
+			
+				<p >
+					<a href="#">Terms</a><a href="#">Privacy</a><a href="#">Security</a><a href="#">ContactGitHub</a>
+				</p>
+			
+			</div>
+		</div> 
+		
+	</div>
+
+</body>
+</html>
