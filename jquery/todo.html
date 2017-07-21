@@ -7,7 +7,7 @@
 	<script>
 		function task(){
 			var item = $("#task").val();
-			$("ul").append('<li id="list">'+'<input type="checkbox" id="completed" >'+item+'<input type="submit" id="delete" value="X" style="float: right;font-size: 15px;">'+'</li>');
+			$("ul").append('<li id="list" >'+'<input type="checkbox" id="completed" ><span id="item">'+item+'</span><input type="submit" id="edit" value="edit">'+'<input type="submit" id="delete" value="X" style="float: right;font-size: 15px;">'+'</li>');
 			$("#task").val('');
 		}
 
@@ -16,31 +16,46 @@
 			
 			$('#add').on('click',task);
 
+			$('#clear').on('click',function(){
+				$('ul').empty();
+				$("#listNumber").val('');
+			});
+
+			$('#todo_list').on('click','#edit',function(){
+				$(this).parent().children('#item').prop('contentEditable',true).focus();
+				return false;
+			});
+
+			   
 			$('#todo_list').on('click','#delete',function(e){
 				var entry = $(this).parent();
 				entry.remove();
-				if (count!=0) {
 
+				var check = entry.children('#completed').prop('checked');
+
+				if (count!=0 && (check==true)) {
 					$("#listNumber").val(--count +' items checked');
-					
 				} else {
-					$("#listNumber").val('0 items checked');	
+					$("#listNumber").val(count +' items checked');
 				}
+
+				
 			});
 
 			$("#todo_list").on('click','#completed',function(e){
-
 		    	if ($(this).prop('checked')==true){ 
 			       	var checked = $(this).parent();
 					checked.css("text-decoration","line-through");
 					checked.fadeTo("slow",0.4);	
-					$("#listNumber").val(++count +' items checked');
+					count++;
+					$("#listNumber").val(count +' items checked');
 
 	   			} else {
 		   			var unchecked = $(this).parent();
 					unchecked.css("text-decoration","none");
 					unchecked.stop().fadeTo('slow',1);
-					$("#listNumber").val(--count +' items checked');		
+					count--;
+					$("#listNumber").val(count +' items checked');		
 	   			}
    			});
 
@@ -72,11 +87,23 @@
 		#add {
 			font-family: URW Gothic L;
 			border-radius: 0px;
-			border-color: white;
+			border-color: #2c3e50;
 			background: #2c3e50;
 			color:white; 
 			margin-top: 20px;
 			font-size: 15px;
+			float: right;
+
+		}
+
+		#edit {
+			font-family: URW Gothic L;
+			border-radius: 0px;
+			border-color: #2c3e50;
+			background: #2c3e50;
+			color:white; 
+			font-size: 15px;
+			margin-left: 15px;
 			float: right;
 
 		}
@@ -109,7 +136,7 @@
 			margin-right: 10px;
 		}
 
-		#listNumber {
+		.listNumber {
 			font-family: URW Gothic L;
 			font-size: 15px;
 			border-radius: 0px;
@@ -119,8 +146,10 @@
 			width: 350px;
 			text-align: center;
 			padding: 10px;
+			margin: 10px;
 			
 		}
+
 	</style>
 
 </head>
@@ -145,7 +174,12 @@
 		</div>  
 		<div class="row">
 			<div class="col-xs-4 col-xs-offset-4">
-				<input type="text" id="listNumber" >
+				<input type="text" id="listNumber" class="listNumber">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4">
+				<input type="submit" id="clear" value="Clear all" class="listNumber">
 			</div>
 		</div>		
 			 
