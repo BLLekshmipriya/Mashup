@@ -2,31 +2,155 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
+		function task(){
+			var item = $("#task").val();
+			$("ul").append('<li id="list">'+'<input type="checkbox" id="completed" >'+item+'<input type="submit" id="delete" value="X" style="float: right;font-size: 15px;">'+'</li>');
+			$("#task").val('');
+		}
+
 		$(document).ready(function(){
-			$("#b1").click(function(){
-				var item=$("#test").val();
-				$("ol").append("<li>"+item+"<button id='b2'>X</button>"+"<button >Completed</button>"+"</li>");
-				$("#test").val('');
-			});
-			$("#b2").click(function(){
-				alert("X button clicked");
-			});
+			var count = 0;
 			
+			$('#add').on('click',task);
+
+			$('#todo_list').on('click','#delete',function(e){
+				var entry = $(this).parent();
+				entry.remove();
+				if (count!=0) {
+
+					$("#listNumber").val(--count +' items checked');
+					
+				} else {
+					$("#listNumber").val('0 items checked');	
+				}
+			});
+
+			$("#todo_list").on('click','#completed',function(e){
+
+		    	if ($(this).prop('checked')==true){ 
+			       	var checked = $(this).parent();
+					checked.css("text-decoration","line-through");
+					checked.fadeTo("slow",0.4);	
+					$("#listNumber").val(++count +' items checked');
+
+	   			} else {
+		   			var unchecked = $(this).parent();
+					unchecked.css("text-decoration","none");
+					unchecked.stop().fadeTo('slow',1);
+					$("#listNumber").val(--count +' items checked');		
+	   			}
+   			});
+
 		});
+
+		
 	</script>
+
+	<style type="text/css">
+		h1 {
+			font-family: URW Gothic L;
+			color: white;
+			text-align: center;
+			padding: 30px;
+
+		}
+
+		#task {
+			font-family: URW Gothic L;
+			font-size: 15px;
+			border-radius: 0px;
+			color: black;
+			padding: 20px;
+			float: left;
+			width: 350px;
+			margin-bottom: 10px 
+		}
+
+		#add {
+			font-family: URW Gothic L;
+			border-radius: 0px;
+			border-color: white;
+			background: #2c3e50;
+			color:white; 
+			margin-top: 20px;
+			font-size: 15px;
+			float: right;
+
+		}
+
+		#list {
+			font-family: URW Gothic L;
+			font-size: 20px;
+			color:white ;
+			padding: 5px;
+			
+			
+		}
+
+		#delete {
+			font-family: URW Gothic L;
+			border-radius: 50px;
+			border-color:white;
+			background: #2c3e50;
+			color: white;
+			
+		}
+
+		#completed {
+			font-family: URW Gothic L;
+			border-radius: 0px;
+			border-color:white;
+			background: #2c3e50;
+			color:white; 
+			padding: 5px;
+			margin-right: 10px;
+		}
+
+		#listNumber {
+			font-family: URW Gothic L;
+			font-size: 15px;
+			border-radius: 0px;
+			border-color: #2c3e50;
+			color: white;
+			background-color: #2c3e50;
+			width: 350px;
+			text-align: center;
+			padding: 10px;
+			
+		}
+	</style>
+
 </head>
-<body>
-	<p>Personal List</p>
-	
-		
-			<input type="text" id="test" name="listitem" placeholder="what is to be added in the list?!" autofocus="true">
-		
-		
-			<button id="b1" >Add</button>
-	<ol></ol>
-	
+<body style="background-color: #2c3e50">
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4">
+				<h1>Personal List</h1>
+
+				<input type="text" id="task" name="listitem" placeholder="what is to be added in the list ?!" autofocus="true">
+
+				<button id="add" >Add</button>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4">
+				<ul id="todo_list"></ul>
+					
+			</div>
+		</div>  
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4">
+				<input type="text" id="listNumber" >
+			</div>
+		</div>		
+			 
+	</div>
+
 </body>
 </html>
 
